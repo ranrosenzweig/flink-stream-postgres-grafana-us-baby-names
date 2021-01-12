@@ -1,0 +1,26 @@
+version: '2'
+services:
+  grafana:
+    build: ./grafana
+    container_name: grafana
+    ports:
+      - "3000:3000"
+    links:
+      - postgres
+    environment:
+      GF_USERS_DEFAULT_THEME: "light"
+      GF_INSTALL_PLUGINS: grafana-clock-panel,briangann-gauge-panel,natel-plotly-panel,grafana-simple-json-datasource,grafana-piechart-panel,magnesium-wordcloud-panel
+
+  postgres:
+    image: postgres:latest
+    container_name: postgres
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_USER=postgres
+
+  testdata:
+    build: ./postgres
+    links:
+      - postgres
