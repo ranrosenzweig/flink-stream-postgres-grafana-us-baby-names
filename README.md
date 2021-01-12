@@ -1,7 +1,7 @@
 # US Baby Names
 
 A demo of a simple exactly-once processing with Flink Streaming pipeline.
-[data sets source (Kaggle)](https://www.kaggle.com/kaggle/us-baby-names#).
+[data sets source (Kaggle)](https://www.kaggle.com/kaggle/us-baby-names#).<br/>
 Data.gov releases two datasets that are helplful for this: one at the national level and another at the state level. Note that only names with at least 5 babies born in the same year (/ state) are included in this dataset for privacy.<br/>
 <br/>
 The data exposed with several views over the dashboard: 
