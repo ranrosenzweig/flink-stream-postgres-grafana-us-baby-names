@@ -36,7 +36,7 @@ arg 3 [optional]:  truncateTables<br/>
 flink run ./my/path/to/flink/job/flink-stream-postgres-grafana-us-baby-names-1.0-SNAPSHOT.jar /path/to/StateNames.csv /path/to/NationalNames.csv TRUNCATETables
 ```
 
-You can check the job status in the [Flink UI](http://localhost:8081).
+You can check the job status in the [Flink UI](http://localhost:8081). (default username:admin/password:admin)
 
 Once it's running, check dashboard in the [Grafana Dashboard](http://localhost:3000).
 
