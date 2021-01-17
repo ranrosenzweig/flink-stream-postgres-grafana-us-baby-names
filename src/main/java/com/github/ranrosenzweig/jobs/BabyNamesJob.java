@@ -77,7 +77,7 @@ public class BabyNamesJob {
 
 
             //Create a DataStream based on the directory
-            DataStream<StateNames> states =
+            DataStream<StateNames> stateNamesSteam =
                             streamEnv.readFile(
                                     stateNamesFormat,
                                     stateNamesDataDir,    //Director to monitor
@@ -90,8 +90,7 @@ public class BabyNamesJob {
                                     }
                ).name("Loading " + stateNamesDataDir + " file");
 
-
-            DataStream<NationalNames> nationals
+            DataStream<NationalNames> nationalNamesSteam
                     = streamEnv.readFile(
                             nationalNamesFormat,
                             nationalNamesDataDir,    //Director to monitor
@@ -105,16 +104,18 @@ public class BabyNamesJob {
                     )
                     .name("Loading " + stateNamesDataDir + " file");
 
+
+
             /* ***************************************************************************
              *                Sink to Postgresql
              ****************************************************************************/
 
             //Define DataStreamSink
-            //states.print();
-            states.addSink(new RichStateNamesSink());
+            //stateNamesSteam.print();
+            stateNamesSteam.addSink(new RichStateNamesSink());
 
-            //nationals.print();
-            nationals.addSink(new RichNationalNamesSink());
+            //nationalNamesSteam.print();
+            nationalNamesSteam.addSink(new RichNationalNamesSink());
 
             /* ***************************************************************************
              *                  Setup data source and execute the Flink pipeline
