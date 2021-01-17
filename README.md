@@ -8,7 +8,7 @@ The data exposed with several views over the dashboard:
 ![Alt text](images/dashboard.png?raw=true "Title")
 
 
-## Stack
+## Tech stack
 [Apache Flink™](http://flink.apache.org)<br/>
 [postgresql](https://www.postgresql.org)<br/>
 [Docker Compose](https://docs.docker.com/compose) <br/>
